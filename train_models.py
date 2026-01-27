@@ -1,14 +1,3 @@
-"""
-AssistFlow AI - Model Training Script
-
-This script trains both ML models:
-1. Priority Prediction Model (Mandatory)
-2. Issue Type Prediction Model (Optional)
-
-Run this script before using the main pipeline.
-Models will be saved to the ./models directory.
-"""
-
 import os
 import sys
 sys.path.append(".")
