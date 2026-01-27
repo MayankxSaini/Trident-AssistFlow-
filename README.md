@@ -12,7 +12,7 @@
 
 **🎯 Transforming Customer Support Operations with AI-Driven Intelligence**
 
-[Live Demo](https://trident-assistflow.onrender.com) • [API Docs](https://trident-assistflow.onrender.com/docs) • [Problem Statement](#-the-problem-flowbridge-technologies)
+[Live Demo](https://trident-assistflow-whha.onrender.com/) • [API Docs](https://trident-assistflow.onrender.com/docs) • [Problem Statement](#-the-problem-flowbridge-technologies)
 
 </div>
 
