@@ -1,0 +1,90 @@
+# =========================
+# Python cache & bytecode
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual environment
+# =========================
+venv/
+.venv/
+env/
+ENV/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Model artifacts (ML)
+# =========================
+models/*.pkl
+models/*.joblib
+models/*.bin
+models/*.pt
+models/*.h5
+models/*.onnx
+
+# =========================
+# Data files (raw datasets)
+# =========================
+data/*.csv
+data/*.xlsx
+data/*.parquet
+data/*.json
+
+# =========================
+# Logs & runtime files
+# =========================
+*.log
+logs/
+*.pid
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/
+.streamlit/secrets.toml
+
+# =========================
+# FastAPI / Uvicorn
+# =========================
+*.db
+*.sqlite3
+
+# =========================
+# OS specific
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs & Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Jupyter / experiments
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Build / cache
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Testing
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/

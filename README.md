@@ -81,3 +81,82 @@ By introducing intelligent prioritization and SLA-aware escalation, AssistFlow A
 ## Conclusion
 
 AssistFlow AI enhances customer support operations by introducing intelligence where it matters most—prioritization, accountability, and proactive risk management. By combining Machine Learning, explainable AI assistance, and SLA-aware workflows, the system delivers measurable business value while keeping humans firmly in control.
+
+---
+
+## Technical Documentation
+
+### Installation
+
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment (Windows)
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Quick Start
+
+```bash
+# 1. Train the ML models
+python train_models.py
+
+# 2. Run the demo
+python demo.py
+```
+
+### Usage in Code
+
+```python
+from src.pipeline import AssistFlowPipeline, print_analysis_report
+
+# Initialize and load models
+pipeline = AssistFlowPipeline()
+pipeline.load_models()
+
+# Analyze a single ticket
+result = pipeline.analyze_ticket(
+    full_text="My laptop screen is flickering. Please help!",
+    ticket_id="TICKET-123",
+    time_to_resolution_hours=20.0  # For SLA simulation
+)
+
+# Print formatted report
+print_analysis_report(result)
+```
+
+### Project Structure
+
+```
+JAI GANESH/
+├── config.py              # Configuration constants
+├── train_models.py        # Model training script
+├── demo.py                # Demo script
+├── requirements.txt       # Python dependencies
+├── data/
+│   └── customer_support_tickets.csv
+├── models/                # Saved ML models
+└── src/
+    ├── ingestion.py       # Data loading
+    ├── models.py          # ML model classes
+    ├── business_rules.py  # SLA and escalation
+    ├── handler_decision.py # AI vs Human routing
+    ├── llm_assistance.py  # LLM assistance
+    └── pipeline.py        # Main orchestration
+```
+
+### Output Fields
+
+Every analyzed ticket produces:
+- `predicted_priority` - ML prediction (Low/Medium/High/Critical)
+- `issue_type` - ML prediction (Technical/Billing/etc.)
+- `sla_hours` - Assigned SLA hours
+- `sla_status` - met / at_risk / breached
+- `final_priority` - Priority after escalation
+- `handler_type` - AI or Human
+- `explanation_text` - LLM-generated explanation
+- `suggested_response` - LLM-generated draft response
