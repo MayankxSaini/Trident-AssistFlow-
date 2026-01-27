@@ -4,24 +4,7 @@ services:
     name: assistflow-frontend
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
-    envVars:
-      - key: PYTHON_VERSION
-        value: "3.11"
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: API_URL
-        fromService:
-          type: web
-          name: assistflow-backend
-          property: host
-
-  # FastAPI Backend
-  - type: web
-    name: assistflow-backend
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
     envVars:
       - key: PYTHON_VERSION
         value: "3.11"
