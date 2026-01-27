@@ -1,162 +1,182 @@
-# AssistFlow AI  
+# 🧠 AssistFlow AI  
 ### SLA-Aware Intelligent Customer Support System
 
----
+AssistFlow AI is an **AI-powered customer support operations dashboard** designed to help support teams **prioritize, route, and resolve tickets efficiently** while maintaining **strict SLA compliance**.
 
-## Problem Overview
-
-Organizations handling large volumes of customer support tickets face a common challenge: **all tickets are treated equally at the point of entry**. This leads to urgent issues being delayed by low-impact requests, inefficient use of human agents, missed SLAs, and declining customer satisfaction.
-
-Traditional keyword-based systems fail to understand the true intent, urgency, and business risk associated with customer messages. As ticket volumes grow, these inefficiencies translate directly into longer resolution times, reduced First Contact Resolution (FCR), and increased operational costs.
-
----
-
-## Our Service: AssistFlow AI
-
-AssistFlow AI is an **AI-assisted decision-support system** designed to optimize how customer support tickets are handled. Instead of replacing human agents, the system introduces an **intelligent workflow layer** that evaluates every ticket before it reaches a support team.
-
-The service focuses on three core outcomes:
-- Ensuring urgent issues are identified and handled first
-- Preventing silent SLA breaches through proactive monitoring
-- Reducing agent workload by automating triage and assistance
+Instead of treating all tickets equally, AssistFlow AI intelligently decides:
+- Which tickets need **immediate human attention**
+- Which tickets can be **handled by AI**
+- Which tickets are **at risk of SLA breach**
 
 ---
 
-## System Workflow
+## 🚨 Business Problem
 
-When a customer submits a support request, the ticket enters AssistFlow AI’s intelligent processing pipeline.
+Customer support teams face recurring challenges:
 
-The system first analyzes the content of the ticket to understand the nature of the issue. By examining the subject and description together, it determines the issue category (such as billing, technical, or account-related), extracts key context, and produces a concise summary that can be easily reviewed by a human agent.
+1. **High Ticket Volume**  
+   Large numbers of repetitive and low-impact tickets overwhelm agents.
 
-Using this understanding, the system assigns an initial priority level—Low, Medium, High, or Critical—based on the potential impact and risk associated with the issue. This prioritization ensures that problems involving financial loss, access issues, or security concerns are immediately distinguished from general inquiries.
+2. **Poor Prioritization**  
+   Static priority systems fail to capture real urgency.
 
-Once priority is assigned, an SLA is attached to the ticket. Each priority level has a defined resolution window, not to increase pressure on low-priority cases, but to ensure **accountability** and prevent any request from being overlooked.
+3. **SLA Breaches**  
+   Delayed responses lead to customer dissatisfaction and penalties.
 
-Unlike traditional systems where priority is fixed, AssistFlow AI continuously monitors the ticket’s SLA status. If a ticket approaches its SLA limit without progress, the system automatically escalates its priority and surfaces it higher in the queue. This SLA-aware escalation acts as a safety mechanism, ensuring issues are addressed before contractual or customer experience damage occurs.
-
-Based on the final priority and risk level, the system determines whether the ticket can be safely handled with AI assistance or requires a human agent. Low-risk, repetitive issues may receive AI-assisted responses, while high-risk or sensitive cases are always routed to human support staff.
-
-For human-handled tickets, AssistFlow AI provides contextual assistance by summarizing the issue, explaining why the ticket was prioritized or escalated, and suggesting possible resolution steps. Human agents remain fully in control, reviewing and approving all actions.
-
-This workflow ensures that **the right issues reach the right people at the right time**, while continuously adapting to time-based risk through SLA monitoring.
+Traditional systems are reactive.  
+**AssistFlow AI is proactive and SLA-aware.**
 
 ---
 
-## SLA-Aware Dynamic Escalation (Key Differentiator)
+## 💡 Solution Overview
 
-Most support systems assign ticket priority only once, at the moment of creation. AssistFlow AI treats priority as a dynamic attribute.
+AssistFlow AI acts as an **intelligent decision layer** between incoming tickets and support agents.
 
-By continuously evaluating SLA risk, the system escalates tickets before breaches occur. This proactive approach shifts support operations from reactive firefighting to preventive intervention, significantly reducing customer dissatisfaction and operational penalties.
+### Core Capabilities
+- AI-based ticket analysis
+- Priority and issue-type prediction
+- SLA risk monitoring
+- Smart AI vs Human routing
+- Automatic escalation
 
----
-
-## Technology Stack
-
-AssistFlow AI is built using a simple, scalable, and practical technology stack:
-
-- **Frontend:** Streamlit, used to display tickets, priorities, SLA status, and AI suggestions to agents and managers.
-- **Backend:** Python with FastAPI, responsible for orchestrating ticket flow, business logic, and API communication.
-- **Intelligence Layer:**  
-  - Machine Learning for text classification and signal extraction  
-  - Large Language Models (LLMs) for summarization, explanation, and response drafting  
-  - Rule-based logic for priority assignment, SLA escalation, and safety controls
-- **Data Storage:** SQLite / PostgreSQL for storing ticket history, SLA status, and outcomes.
+All insights are presented in a **real-time operations dashboard**.
 
 ---
 
-## Business Impact
+## 🔄 End-to-End Workflow
 
-By introducing intelligent prioritization and SLA-aware escalation, AssistFlow AI enables faster resolution times, higher First Contact Resolution, improved customer satisfaction, and better utilization of human agents. These improvements directly translate into reduced operational costs and more reliable support performance.
+1. **Ticket Ingestion**  
+   Tickets are loaded from a dataset simulating real-world support systems.
+
+2. **AI Analysis Pipeline**  
+   - ML models predict ticket priority and issue category  
+   - Business rules compute SLA hours  
+   - SLA status is classified as `MET`, `AT_RISK`, or `BREACHED`
+
+3. **Handler Assignment**  
+   - Low-risk tickets → 🤖 AI Handling Queue  
+   - High-risk / critical tickets → 👤 Human Queue
+
+4. **Operational Views**
+   - 📥 Ticket Inbox: All unresolved tickets
+   - 🤖 AI Handling Queue: AI-managed tickets
+   - 👤 Human Queue: Human-required tickets
+
+5. **Resolution & Escalation**
+   - AI responses can be approved
+   - Tickets can be escalated
+   - SLA state updates dynamically
 
 ---
 
-## Team Members
+## ✨ Key Features
 
-- **Mayank Saini**  
-- **Saurabh**  
+### 📥 Ticket Inbox
+- Unified view of unresolved tickets
+- Filters for priority and SLA status
+- Urgent alerts for critical tickets
+
+### 🤖 AI Handling Queue
+- Automated AI resolution
+- Confidence-based escalation
+- AI response preview
+
+### 👤 Human Queue
+- Critical and escalated tickets
+- Sorted by urgency and SLA risk
+
+### 📊 Operations Dashboard
+- Ticket processing metrics
+- AI vs Human distribution
+- Priority and SLA analytics
+- Escalation rate monitoring
+
+---
+
+## 🧠 Intelligence Layer
+
+### Machine Learning
+- Priority classification: `Low | Medium | High | Critical`
+- Issue classification: `Billing | Technical | Refund | Product | Access`
+
+### Business Rules
+- SLA calculation
+- Escalation logic
+- Handler decision rules
+
+### LLM (Optional Layer)
+- Human-like response generation
+- Explainable AI decisions
+
+This hybrid architecture ensures **accuracy, transparency, and scalability**.
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **FastAPI** – REST API
+- **Python** – Core logic
+
+### Frontend
+- **Streamlit** – Interactive dashboard
+
+### AI & ML
+- **scikit-learn**
+- Rule-based SLA engine
+- Optional LLM integration
+
+### Data
+- CSV-based dataset (database-ready design)
+
+---
+
+## 👥 Target Users
+
+- Customer Support Teams
+- SaaS Companies
+- Operations Managers
+- SLA-driven enterprises
+
+---
+
+## 🚀 Why AssistFlow AI?
+
+✔ SLA-aware by design  
+✔ AI + Human collaboration  
+✔ Clear operational visibility  
+✔ Explainable decisions  
+✔ Production-oriented architecture  
+
+AssistFlow AI focuses on **decision intelligence**, not just chat automation.
+
+---
+
+
+---
+
+## 👨‍💻 Team
+
+- **Mayank Saini**
+- **Saurabh**
 - **Ritik Tanwar**
 
 ---
 
-## Conclusion
+## 🏁 Future Scope
 
-AssistFlow AI enhances customer support operations by introducing intelligence where it matters most—prioritization, accountability, and proactive risk management. By combining Machine Learning, explainable AI assistance, and SLA-aware workflows, the system delivers measurable business value while keeping humans firmly in control.
+- Real-time ticket ingestion
+- Database-backed persistence
+- Production LLM APIs
+- Agent performance analytics
+- Enterprise deployment
 
 ---
 
-## Technical Documentation
+## 📌 Conclusion
 
-### Installation
+AssistFlow AI demonstrates how **AI-driven prioritization and SLA awareness** can transform customer support operations.
 
-```bash
-# Create virtual environment
-python -m venv .venv
+It is not just a prototype — it is a **scalable, deployable support intelligence system**.
 
-# Activate virtual environment (Windows)
-.venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Quick Start
-
-```bash
-# 1. Train the ML models
-python train_models.py
-
-# 2. Run the demo
-python demo.py
-```
-
-### Usage in Code
-
-```python
-from src.pipeline import AssistFlowPipeline, print_analysis_report
-
-# Initialize and load models
-pipeline = AssistFlowPipeline()
-pipeline.load_models()
-
-# Analyze a single ticket
-result = pipeline.analyze_ticket(
-    full_text="My laptop screen is flickering. Please help!",
-    ticket_id="TICKET-123",
-    time_to_resolution_hours=20.0  # For SLA simulation
-)
-
-# Print formatted report
-print_analysis_report(result)
-```
-
-### Project Structure
-
-```
-JAI GANESH/
-├── config.py              # Configuration constants
-├── train_models.py        # Model training script
-├── demo.py                # Demo script
-├── requirements.txt       # Python dependencies
-├── data/
-│   └── customer_support_tickets.csv
-├── models/                # Saved ML models
-└── src/
-    ├── ingestion.py       # Data loading
-    ├── models.py          # ML model classes
-    ├── business_rules.py  # SLA and escalation
-    ├── handler_decision.py # AI vs Human routing
-    ├── llm_assistance.py  # LLM assistance
-    └── pipeline.py        # Main orchestration
-```
-
-### Output Fields
-
-Every analyzed ticket produces:
-- `predicted_priority` - ML prediction (Low/Medium/High/Critical)
-- `issue_type` - ML prediction (Technical/Billing/etc.)
-- `sla_hours` - Assigned SLA hours
-- `sla_status` - met / at_risk / breached
-- `final_priority` - Priority after escalation
-- `handler_type` - AI or Human
-- `explanation_text` - LLM-generated explanation
-- `suggested_response` - LLM-generated draft response
