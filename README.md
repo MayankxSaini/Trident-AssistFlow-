@@ -107,13 +107,13 @@ AssistFlow AI is designed as an **intelligent assistant** that augments human ag
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    ASSISTFLOW AI PRINCIPLES                      │
+│                    ASSISTFLOW AI PRINCIPLES                     │
 ├─────────────────────────────────────────────────────────────────┤
-│  ✅ AI ASSISTS decisions      │  ❌ AI MAKES final decisions    │
-│  ✅ Deterministic SLA rules   │  ❌ ML-based SLA calculations   │
-│  ✅ Explainable predictions   │  ❌ Black-box neural networks   │
-│  ✅ Human oversight always    │  ❌ Fully autonomous handling   │
-│  ✅ Transparent reasoning     │  ❌ Hidden decision logic       │
+│  ✅ AI ASSISTS decisions      │  ❌ AI MAKES final decisions   │
+│  ✅ Deterministic SLA rules   │  ❌ ML-based SLA calculations  │
+│  ✅ Explainable predictions   │  ❌ Black-box neural networks  │
+│  ✅ Human oversight always    │  ❌ Fully autonomous handling  │
+│  ✅ Transparent reasoning     │  ❌ Hidden decision logic      │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -135,71 +135,71 @@ AssistFlow AI is designed as an **intelligent assistant** that augments human ag
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                         ASSISTFLOW AI ARCHITECTURE                        │
+│                         ASSISTFLOW AI ARCHITECTURE                       │
 ├──────────────────────────────────────────────────────────────────────────┤
 │                                                                          │
-│   ┌─────────────┐    ┌─────────────────────────────────────────────┐    │
-│   │   TICKETS   │───▶│              INGESTION LAYER                │    │
-│   │  (CSV/API)  │    │   • Data Loading & Validation               │    │
-│   └─────────────┘    │   • Text Preprocessing & Cleaning           │    │
-│                      └─────────────────┬───────────────────────────┘    │
+│   ┌─────────────┐    ┌─────────────────────────────────────────────┐     │
+│   │   TICKETS   │───▶│              INGESTION LAYER               │     │
+│   │  (CSV/API)  │    │   • Data Loading & Validation               │     │
+│   └─────────────┘    │   • Text Preprocessing & Cleaning           │     │
+│                      └─────────────────┬───────────────────────────┘     │
 │                                        │                                 │
 │                                        ▼                                 │
-│   ┌────────────────────────────────────────────────────────────────┐    │
+│   ┌────────────────────────────────────────────────────────────────┐     │
 │   │                    ML PREDICTION LAYER                          │    │
-│   │  ┌─────────────────┐    ┌─────────────────┐                    │    │
-│   │  │  Model 1:       │    │  Model 2:       │                    │    │
-│   │  │  Priority       │    │  Issue Type     │                    │    │
-│   │  │  Classifier     │    │  Classifier     │                    │    │
-│   │  │  (TF-IDF + LR)  │    │  (TF-IDF + LR)  │                    │    │
-│   │  └────────┬────────┘    └────────┬────────┘                    │    │
+│   │  ┌─────────────────┐    ┌─────────────────┐                    │     │
+│   │  │  Model 1:       │    │  Model 2:       │                    │     │
+│   │  │  Priority       │    │  Issue Type     │                    │     │
+│   │  │  Classifier     │    │  Classifier     │                    │     │
+│   │  │  (TF-IDF + LR)  │    │  (TF-IDF + LR)  │                    │     │
+│   │  └────────┬────────┘    └────────┬────────┘                    │     │
 │   │           │                      │                              │    │
 │   │           └──────────┬───────────┘                              │    │
 │   └──────────────────────┼──────────────────────────────────────────┘    │
 │                          │                                               │
 │                          ▼                                               │
-│   ┌────────────────────────────────────────────────────────────────┐    │
-│   │               BUSINESS RULES ENGINE (NO ML)                     │    │
-│   │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │    │
-│   │  │ SLA Hours    │  │ SLA Status   │  │ Escalation   │          │    │
-│   │  │ Assignment   │  │ Calculator   │  │ Rules        │          │    │
-│   │  │              │  │              │  │              │          │    │
-│   │  │ Critical: 6h │  │ MET          │  │ AT_RISK →    │          │    │
-│   │  │ High: 24h    │  │ AT_RISK      │  │ Escalate     │          │    │
-│   │  │ Medium: 48h  │  │ BREACHED     │  │ Priority     │          │    │
-│   │  │ Low: 72h     │  │              │  │              │          │    │
-│   │  └──────────────┘  └──────────────┘  └──────────────┘          │    │
+│   ┌────────────────────────────────────────────────────────────────┐     │
+│   │               BUSINESS RULES ENGINE (NO ML)                    │     │
+│   │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │     │
+│   │  │ SLA Hours    │  │ SLA Status   │  │ Escalation   │          │     │
+│   │  │ Assignment   │  │ Calculator   │  │ Rules        │          │     │
+│   │  │              │  │              │  │              │          │     │
+│   │  │ Critical: 6h │  │ MET          │  │ AT_RISK →    │          │     │
+│   │  │ High: 24h    │  │ AT_RISK      │  │ Escalate     │          │     │
+│   │  │ Medium: 48h  │  │ BREACHED     │  │ Priority     │          │     │
+│   │  │ Low: 72h     │  │              │  │              │          │     │
+│   │  └──────────────┘  └──────────────┘  └──────────────┘          │     │
 │   └──────────────────────┬──────────────────────────────────────────┘    │
 │                          │                                               │
 │                          ▼                                               │
-│   ┌────────────────────────────────────────────────────────────────┐    │
-│   │              HANDLER DECISION LAYER (RULE-BASED)                │    │
-│   │                                                                  │    │
-│   │   Priority = Critical/High  ──────────▶  👤 HUMAN QUEUE         │    │
-│   │   Issue = Billing/Security  ──────────▶  👤 HUMAN QUEUE         │    │
-│   │   Otherwise                 ──────────▶  🤖 AI HANDLING         │    │
-│   │                                                                  │    │
-│   └──────────────────────┬──────────────────────────────────────────┘    │
+│   ┌────────────────────────────────────────────────────────────────┐     │
+│   │              HANDLER DECISION LAYER (RULE-BASED)               │     │
+│   │                                                                │     │
+│   │   Priority = Critical/High  ──────────▶  👤 HUMAN QUEUE       │     │
+│   │   Issue = Billing/Security  ──────────▶  👤 HUMAN QUEUE       │     │
+│   │   Otherwise                 ──────────▶  🤖 AI HANDLING       │     │
+│   │                                                                │     │
+│   └──────────────────────┬─────────────────────────────────────────┘     │
 │                          │                                               │
 │                          ▼                                               │
-│   ┌────────────────────────────────────────────────────────────────┐    │
-│   │                 LLM ASSISTANCE LAYER                            │    │
-│   │              (AFTER ALL DECISIONS FINAL)                        │    │
-│   │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │    │
-│   │  │ Ticket       │  │ Decision     │  │ Response     │          │    │
-│   │  │ Summary      │  │ Explanation  │  │ Draft        │          │    │
-│   │  └──────────────┘  └──────────────┘  └──────────────┘          │    │
-│   │                                                                  │    │
-│   │  🔒 LLM CANNOT modify priority, SLA, or handler decisions       │    │
-│   └──────────────────────┬──────────────────────────────────────────┘    │
+│   ┌────────────────────────────────────────────────────────────────┐     │
+│   │                 LLM ASSISTANCE LAYER                           │     │
+│   │              (AFTER ALL DECISIONS FINAL)                       │     │
+│   │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │     │
+│   │  │ Ticket       │  │ Decision     │  │ Response     │          │     │
+│   │  │ Summary      │  │ Explanation  │  │ Draft        │          │     │
+│   │  └──────────────┘  └──────────────┘  └──────────────┘          │     │
+│   │                                                                │     │
+│   │  🔒 LLM CANNOT modify priority, SLA, or handler decisions     │      │
+│   └──────────────────────┬─────────────────────────────────────────┘     │
 │                          │                                               │
 │                          ▼                                               │
-│   ┌────────────────────────────────────────────────────────────────┐    │
-│   │                    OUTPUT LAYER                                 │    │
-│   │  • Complete ticket analysis result                              │    │
-│   │  • Real-time dashboard updates                                  │    │
-│   │  • API response for integrations                                │    │
-│   └─────────────────────────────────────────────────────────────────┘    │
+│   ┌────────────────────────────────────────────────────────────────┐     │
+│   │                    OUTPUT LAYER                                │     │
+│   │  • Complete ticket analysis result                             │     │
+│   │  • Real-time dashboard updates                                 │     │
+│   │  • API response for integrations                               │     │
+│   └────────────────────────────────────────────────────────────────┘     │
 │                                                                          │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -325,13 +325,13 @@ We deliberately chose **simple, explainable models** over complex deep learning:
 ### Why Rules Over ML for Critical Decisions?
 
 ```
-┌────────────────────────────────────────────────────────────────────┐
+┌───────────────────────────────────────────────────────────────────┐
 │  CRITICAL INSIGHT: SLA and Escalation are BUSINESS decisions,     │
-│  not predictions. They must be deterministic and auditable.        │
-│                                                                    │
-│  ❌ ML models can be wrong → unacceptable for SLA compliance      │
-│  ✅ Rules are predictable → guaranteed policy enforcement          │
-└────────────────────────────────────────────────────────────────────┘
+│  not predictions. They must be deterministic and auditable.       │
+│                                                                   │
+│  ❌ ML models can be wrong → unacceptable for SLA compliance     │
+│  ✅ Rules are predictable → guaranteed policy enforcement        │
+└───────────────────────────────────────────────────────────────────┘
 ```
 
 ### SLA Assignment Rules
@@ -388,16 +388,16 @@ def determine_handler(priority, issue_type):
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
-│                    LLM USAGE BOUNDARIES                             │
+│                    LLM USAGE BOUNDARIES                            │
 ├────────────────────────────────────────────────────────────────────┤
 │                                                                    │
-│  ✅ LLM CAN:                    │  ❌ LLM CANNOT:                  │
+│  ✅ LLM CAN:                    │  ❌ LLM CANNOT:                 │
 │  • Summarize ticket content     │  • Change priority               │
 │  • Explain decisions            │  • Modify SLA hours              │
 │  • Draft response messages      │  • Override handler decision     │
 │  • Provide context              │  • Bypass escalation rules       │
 │                                                                    │
-│  LLM is invoked ONLY AFTER all decisions are finalized            │
+│  LLM is invoked ONLY AFTER all decisions are finalized             │
 │                                                                    │
 └────────────────────────────────────────────────────────────────────┘
 ```
@@ -526,7 +526,7 @@ AssistFlow-AI/
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│                 ANNUAL COST SAVINGS                         │
+│                 ANNUAL COST SAVINGS                        │
 ├────────────────────────────────────────────────────────────┤
 │ Reduced handling time (15min → 30sec)     │  $250,000      │
 │ Fewer escalations & rework                │  $150,000      │
