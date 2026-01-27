@@ -66,7 +66,7 @@ All insights are presented in a **real-time operations dashboard**.
    - AI responses can be approved
    - Tickets can be escalated
    - SLA state updates dynamically
-
+6. **Retrieval-Augmented Generation (RAG)**
 ---
 
 ## ✨ Key Features
