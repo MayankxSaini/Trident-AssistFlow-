@@ -561,9 +561,9 @@ Comprehensive metrics showing ticket distribution, SLA compliance, and team perf
 
 | Name | Role |
 |------|------|
-| **Mayank Saini** | Lead Developer |
+| **Mayank Saini** | Backend Developer & LLM integrator |
 | **Saurabh** | ML Engineer |
-| **Ritik Tanwar** | Backend Developer |
+| **Ritik Tanwar** | Frontend Developer & UI Designer |
 
 **Team Name: Trident**
 
