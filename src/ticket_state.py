@@ -1,17 +1,12 @@
-"""
-AssistFlow AI - Ticket State Management
-
-Manages ticket states and transitions for the support system.
-"""
+"""Ticket state management"""
 
 from enum import Enum
-from typing import Optional, Dict, Any
-from dataclasses import dataclass, field
+from typing import Optional
+from dataclasses import dataclass
 from datetime import datetime
 
 
 class TicketState(Enum):
-    """Ticket lifecycle states."""
     NEW = "New"
     IN_PROGRESS = "In Progress"
     AI_HANDLING = "AI Handling"
@@ -21,73 +16,42 @@ class TicketState(Enum):
 
 @dataclass
 class TicketStateTransition:
-    """Records a state transition."""
     from_state: TicketState
     to_state: TicketState
     timestamp: datetime
     reason: str
-    actor: str  # "System", "AI", or agent name
+    actor: str
 
 
-# Valid state transitions
 VALID_TRANSITIONS = {
-    TicketState.NEW: [
-        TicketState.IN_PROGRESS,
-        TicketState.AI_HANDLING,
-        TicketState.WAITING_FOR_HUMAN
-    ],
-    TicketState.IN_PROGRESS: [
-        TicketState.AI_HANDLING,
-        TicketState.WAITING_FOR_HUMAN,
-        TicketState.RESOLVED
-    ],
-    TicketState.AI_HANDLING: [
-        TicketState.WAITING_FOR_HUMAN,  # Escalation
-        TicketState.RESOLVED
-    ],
-    TicketState.WAITING_FOR_HUMAN: [
-        TicketState.IN_PROGRESS,
-        TicketState.RESOLVED
-    ],
-    TicketState.RESOLVED: []  # Terminal state
+    TicketState.NEW: [TicketState.IN_PROGRESS, TicketState.AI_HANDLING, TicketState.WAITING_FOR_HUMAN],
+    TicketState.IN_PROGRESS: [TicketState.AI_HANDLING, TicketState.WAITING_FOR_HUMAN, TicketState.RESOLVED],
+    TicketState.AI_HANDLING: [TicketState.WAITING_FOR_HUMAN, TicketState.RESOLVED],
+    TicketState.WAITING_FOR_HUMAN: [TicketState.IN_PROGRESS, TicketState.RESOLVED],
+    TicketState.RESOLVED: []
 }
 
 
 def get_initial_state(handler_type: str) -> TicketState:
-    """
-    Determine initial state based on handler type.
-    
-    Args:
-        handler_type: "AI" or "Human"
-        
-    Returns:
-        Initial ticket state
-    """
-    if handler_type == "AI":
-        return TicketState.AI_HANDLING
-    else:
-        return TicketState.WAITING_FOR_HUMAN
+    return TicketState.AI_HANDLING if handler_type == "AI" else TicketState.WAITING_FOR_HUMAN
 
 
 def can_transition(current_state: TicketState, target_state: TicketState) -> bool:
-    """Check if a state transition is valid."""
     return target_state in VALID_TRANSITIONS.get(current_state, [])
 
 
 def get_state_color(state: TicketState) -> str:
-    """Get display color for a state."""
     colors = {
-        TicketState.NEW: "#3498db",           # Blue
-        TicketState.IN_PROGRESS: "#f39c12",   # Orange
-        TicketState.AI_HANDLING: "#2ecc71",   # Green
-        TicketState.WAITING_FOR_HUMAN: "#e74c3c",  # Red
-        TicketState.RESOLVED: "#95a5a6"       # Gray
+        TicketState.NEW: "#3498db",
+        TicketState.IN_PROGRESS: "#f39c12",
+        TicketState.AI_HANDLING: "#2ecc71",
+        TicketState.WAITING_FOR_HUMAN: "#e74c3c",
+        TicketState.RESOLVED: "#95a5a6"
     }
     return colors.get(state, "#000000")
 
 
 def get_state_icon(state: TicketState) -> str:
-    """Get emoji icon for a state."""
     icons = {
         TicketState.NEW: "🆕",
         TicketState.IN_PROGRESS: "🔄",

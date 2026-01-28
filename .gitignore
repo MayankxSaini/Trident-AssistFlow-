@@ -23,7 +23,7 @@ ENV/
 # =========================
 # Model artifacts (ML)
 # =========================
-models/*.pkl
+# models/*.pkl  # Commented out - needed for deployment
 models/*.joblib
 models/*.bin
 models/*.pt
@@ -33,7 +33,7 @@ models/*.onnx
 # =========================
 # Data files (raw datasets)
 # =========================
-data/*.csv
+# data/*.csv  # Commented out - needed for deployment
 data/*.xlsx
 data/*.parquet
 data/*.json
