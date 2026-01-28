@@ -386,6 +386,7 @@ def determine_handler(priority, issue_type):
 
 ### Role of LLM in AssistFlow AI
 
+AssistFlow AI enhances customer support operations by introducing intelligence where it matters most—prioritization, accountability, and proactive risk management. By combining Machine Learning, explainable AI assistance, and SLA-aware workflows, the system delivers measurable business value while keeping humans firmly in control...
 ```
 ┌────────────────────────────────────────────────────────────────────┐
 │                    LLM USAGE BOUNDARIES                            │
